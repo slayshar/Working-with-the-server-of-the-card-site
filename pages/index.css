@@ -1,0 +1,59 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts.css);
+@import url(../blocks/root/root.css);
+@import url(../blocks/header/header.css);
+@import url(../blocks/logo/logo.css);
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/user-info/user-info.css);
+@import url(../blocks/button/button.css);
+@import url(../blocks/places-list/places-list.css);
+@import url(../blocks/place-card/place-card.css);
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/edit/edit.css);
+
+body {
+  background-color: #000;
+}
+.grey_area {
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba(10, 5, 15, 0.438);
+  position: fixed;
+  top: 0;
+  display: none;
+}
+.grey_area.active {
+  display: block;
+}
+.image__close {
+  width: 26px;
+  cursor: pointer;
+  margin: 0 -26px auto auto;
+}
+.main-img {
+  display: block;
+  border: none;
+  max-width: 80vw;
+  max-height: 80vh;
+}
+.cont {
+  display: grid;
+  position: absolute;
+}
+
+input {
+  border: 2px solid black;
+  outline: none;
+}
+.error {
+  width  : 100%;
+  padding: 0.3em;
+display: inline-block;
+margin-top: 3px;
+  font-size: 80%;
+  color: red;
+
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}

@@ -1,0 +1,21 @@
+.user-info__edit {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    width: 40px;
+    font-size: 14px;
+    height: 25px;
+    cursor: pointer;
+  }
+  .user-info__edit:hover {
+    background-color: white;
+    color: black;
+   border-radius: 4px;
+  }
+  .user-info__edit:active {
+    background-color: #46469b;
+    border-radius: 4px;
+  }
+  .user-info__edit:focus {
+    box-shadow: 0 0 16px rgb(85, 202, 154);
+  }

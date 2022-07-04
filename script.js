@@ -1,3 +1,8 @@
+const BASE_URL = `http://127.0.0.1:5000`;
+const endpoints = {
+  users: 'users',
+  cards: 'cards',
+};
 const place = document.querySelector(`.places-list`);
 const greyArea = document.querySelector(`.grey_area`);
 const editBtn = document.querySelector(`.user-info__edit`);
@@ -10,7 +15,12 @@ const editSubmitBtn = document.querySelector(`.edit__button`);
 const cardSubmitBtn = document.querySelector(`.popup__button`);
 const cardUrl = document.querySelector(`.popup__input_type_link-url`);
 const cardName = document.querySelector(`.popup__input_type_name`);
+const cardArray = [];
 
+const test = new UserApi();
+const user = test.loadUser(`62a11004753707ba8cdc5b8f`);
+const cardtest = new AllCardsApi();
+const cardsall = cardtest.loadCards();
 const loadName = new UserInfo(editWindow);
 const editForm = new Popup(editWindow, editBtn);
 const popupForm = new Popup(cardWindow, mainPopupBtn);
@@ -26,21 +36,6 @@ const validationForm = new FormValidator(
 closeBigImg.setEventListeners();
 validationForm.setEventListeners();
 createErrors.setEventListeners();
-
-const initCards = () => {
-  const cardArray = [];
-  initialCards.forEach((card) => {
-    const cardInstance = new Card(card.name, card.link);
-    const cardNode = cardInstance.render();
-    cardNode
-      .querySelector(`.place-card__image`)
-      .addEventListener(`click`, () => gettingUrl(cardInstance));
-    cardArray.push(cardNode);
-  });
-  const readyCard = new CardList(place, cardArray);
-  readyCard.render();
-};
-initCards();
 
 const everythingAboutForms = () => {
   const openAndCloseForms = () => {

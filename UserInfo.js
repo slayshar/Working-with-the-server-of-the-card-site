@@ -1,6 +1,7 @@
 class UserInfo {
   constructor(form) {
     this.form = form;
+    this.usersUrl = `${BASE_URL}/${endpoints.users}`;
   }
   setUserInfo() {
     this.name = document.querySelector(`.user-info__name`);

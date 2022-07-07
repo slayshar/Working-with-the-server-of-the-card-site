@@ -19,6 +19,8 @@ const cardArray = [];
 
 const test = new UserApi();
 const user = test.loadUser(`62a11004753707ba8cdc5b8f`);
+const newUser = new UserNewApi(`62a11004753707ba8cdc5b8f`);
+lastVersionOfUser = newUser.loadNewUser();
 const cardtest = new AllCardsApi();
 const cardsall = cardtest.loadCards();
 const loadName = new UserInfo(editWindow);
@@ -62,3 +64,5 @@ const everythingAboutForms = () => {
   resultForms();
 };
 everythingAboutForms();
+
+//чтобы использовать PATCH нам нужно знать id пользователя, его нужно достать из UserApi, а дальше использовать в PATCH

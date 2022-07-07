@@ -2,9 +2,9 @@ class UserApi {
   constructor() {
     this.usersUrl = `${BASE_URL}/${endpoints.users}`;
   }
-  loadUser = (id) => {
-    fetch(`${this.usersUrl}/${id}`).then((result) => {
-      return result.json();
-    });
-  };
+  async loadUser(id) {
+    let response = await fetch(`${this.usersUrl}/${id}`);
+    let user = await response.json();
+    return user;
+  }
 }

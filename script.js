@@ -43,6 +43,7 @@
         event.preventDefault();
         const userCardInstance = new Card(cardName.value, cardUrl.value);
         const userCardNode = userCardInstance.render();
+        userCardInstance.send();
         place.prepend(userCardNode);
         popupForm.enter();
       });

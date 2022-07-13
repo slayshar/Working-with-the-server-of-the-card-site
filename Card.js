@@ -47,6 +47,22 @@ class Card {
     this.addEventListeners();
   };
 
+  async send() {
+    let response = await fetch(`http://localhost:5000/cards`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify({
+        name: `${this.name}`,
+        link: `${this.link}`,
+      }),
+    });
+    console.log(response);
+    let user = await response.json();
+    return user;
+  }
+
   render = () => {
     this.create();
     return this.card;

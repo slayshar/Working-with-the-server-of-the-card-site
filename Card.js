@@ -11,11 +11,15 @@ class Card {
       .style.backgroundImage.slice(4, -1)
       .replace(/"/g, '');
   }
+  async sendLike() {
+    await console.log(`edsf`);
+  }
 
   like = (event) => {
     this.card
       .querySelector('.place-card__like-icon')
       .classList.toggle(`place-card__like-icon_liked`);
+    this.sendLike();
   };
 
   remove = (event) => {
@@ -36,12 +40,15 @@ class Card {
     this.card = document.createElement(`div`);
     this.card.classList.add(`place-card`);
     const template = `
-      <div class="place-card__image" style="background-image: url(${this.link})">
+      <div class="place-card__image" style="background-image: url(${
+        this.link
+      })">
         <button class="place-card__delete-icon"></button>
       </div>
       <div class="place-card__description">
         <h3 class="place-card__name">${this.name}</h3>
-        <button class="place-card__like-icon"></button>
+        <div><button class="place-card__like-icon"></button>
+        <p class = "place-card__like-amount">${1}</p></div>
       </div>`;
     this.card.insertAdjacentHTML('beforeend', template);
     this.addEventListeners();

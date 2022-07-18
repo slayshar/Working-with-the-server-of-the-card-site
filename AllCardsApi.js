@@ -9,7 +9,12 @@ class AllCardsApi {
       })
       .then((data) => {
         data.forEach((card) => {
-          const cardInstance = new Card(card.name, card.link);
+          const cardInstance = new Card(
+            card.name,
+            card.link,
+            card.likes.length,
+            card._id
+          );
           const cardNode = cardInstance.render();
           cardNode
             .querySelector(`.place-card__image`)

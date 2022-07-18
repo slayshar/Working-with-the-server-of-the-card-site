@@ -1,8 +1,10 @@
 class Card {
-  constructor(name, link) {
+  constructor(name, link, likes, id) {
     this.name = name;
     this.link = link;
+    this.likes = likes;
     this.card = null;
+    this.id = id;
   }
 
   get Url() {
@@ -24,6 +26,7 @@ class Card {
 
   remove = (event) => {
     this.card.remove();
+    this.delete();
     event.stopPropagation();
   };
 
@@ -40,15 +43,13 @@ class Card {
     this.card = document.createElement(`div`);
     this.card.classList.add(`place-card`);
     const template = `
-      <div class="place-card__image" style="background-image: url(${
-        this.link
-      })">
+      <div class="place-card__image" style="background-image: url(${this.link})">
         <button class="place-card__delete-icon"></button>
       </div>
       <div class="place-card__description">
         <h3 class="place-card__name">${this.name}</h3>
         <div><button class="place-card__like-icon"></button>
-        <p class = "place-card__like-amount">${1}</p></div>
+        <p class = "place-card__like-amount">${this.likes}</p></div>
       </div>`;
     this.card.insertAdjacentHTML('beforeend', template);
     this.addEventListeners();
@@ -65,13 +66,20 @@ class Card {
         link: `${this.link}`,
       }),
     });
-    console.log(response);
+
     let user = await response.json();
     return user;
   }
 
+  async delete() {
+    let response = await fetch(`http://localhost:5000/cards/${this.id}`, {
+      method: 'DELETE',
+    });
+  }
+
   render = () => {
     this.create();
+
     return this.card;
   };
 }

@@ -1,7 +1,6 @@
 (async function () {
   const test = new UserApi();
   const user = await test.loadUser();
-  console.log(user);
 
   const updateUserData = (name, about) => {
     test.loadNewUser(name, about);

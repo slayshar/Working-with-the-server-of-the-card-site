@@ -22,7 +22,7 @@ class UserApi {
         }),
       }
     );
-    console.log(response);
+
     let user = await response.json();
     return user;
   }

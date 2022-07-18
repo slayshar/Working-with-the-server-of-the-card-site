@@ -14,7 +14,10 @@ class Card {
       .replace(/"/g, '');
   }
   async sendLike() {
-    await console.log(`edsf`);
+    let response = await fetch(`http://localhost:5000/cards/${this.id}`, {
+      method: 'PATCH',
+    });
+    console.log(response);
   }
 
   like = (event) => {
@@ -25,8 +28,10 @@ class Card {
   };
 
   remove = (event) => {
-    this.card.remove();
-    this.delete();
+    if (window.confirm(`Удалить карточку безвозвратно?`) === true) {
+      this.card.remove();
+      this.delete();
+    }
     event.stopPropagation();
   };
 

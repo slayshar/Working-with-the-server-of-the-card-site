@@ -3,7 +3,6 @@ class Popup {
     this.block = block;
     this.closeBtn = this.block.querySelector(`.popup__close`);
     this.openBtn = btn;
-    this.enter - enter;
   }
   open() {
     this.openBtn.addEventListener(`click`, () => {

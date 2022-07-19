@@ -11,13 +11,21 @@
   const loadName = new UserInfo(editWindow, updateUserData);
   const editForm = new Popup(editWindow, editBtn);
   const popupForm = new Popup(cardWindow, mainPopupBtn);
+  const photoForm = new Popup(photoWindow, photo);
   const closeBigImg = new ImgPopup();
-  const createErrors = new Errors(editInputForm, popupInputForm);
+  const photoChanger = new PhotoPopup();
+  const createErrors = new Errors(
+    editInputForm,
+    popupInputForm,
+    photoInputForm
+  );
   const validationForm = new FormValidator(
     editInputForm,
     editSubmitBtn,
     popupInputForm,
-    cardSubmitBtn
+    cardSubmitBtn,
+    photoInputForm,
+    photoSubmitBtn
   );
 
   closeBigImg.setEventListeners();
@@ -28,6 +36,7 @@
     const openAndCloseForms = () => {
       editForm.open();
       popupForm.open();
+      photoForm.open();
     };
     openAndCloseForms();
 
@@ -45,6 +54,11 @@
         userCardInstance.send();
         place.prepend(userCardNode);
         popupForm.enter();
+      });
+
+      photoSubmitBtn.addEventListener(`click`, (event) => {
+        event.preventDefault();
+        photoForm.enter();
       });
     };
     resultForms();

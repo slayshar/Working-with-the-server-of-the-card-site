@@ -17,3 +17,7 @@ const editSubmitBtn = document.querySelector(`.edit__button`);
 const cardSubmitBtn = document.querySelector(`.popup__button`);
 const cardUrl = document.querySelector(`.popup__input_type_link-url`);
 const cardName = document.querySelector(`.popup__input_type_name`);
+const photo = document.querySelector(`.user-info__shadowphoto`);
+const photoWindow = document.querySelector(`.photo`);
+const photoInputForm = document.querySelector(`.photo__form`);
+const photoSubmitBtn = document.querySelector(`.photo__button`);

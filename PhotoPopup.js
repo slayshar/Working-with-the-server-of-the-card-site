@@ -1,0 +1,3 @@
+class PhotoPopup {
+  constructor() {}
+}

@@ -1,7 +1,8 @@
 class Errors {
-  constructor(editForm, cardForm) {
+  constructor(editForm, cardForm, photoForm) {
     this.editform = editForm;
     this.cardform = cardForm;
+    this.photoform = photoForm;
   }
   get editname() {
     return this.editform.querySelector(`.edit__input_type_name`);
@@ -15,6 +16,9 @@ class Errors {
   get cardlink() {
     return this.cardform.querySelector(`.popup__input_type_link-url`);
   }
+  get photolink() {
+    return this.photoform.querySelector(`.photo__input_type_link-url`);
+  }
   get editnameerror() {
     return this.editform.querySelector(`.userError`);
   }
@@ -26,6 +30,9 @@ class Errors {
   }
   get cardlinkerror() {
     return this.cardform.querySelector(`.linkError`);
+  }
+  get photolinkerror() {
+    return this.photoform.querySelector(`.photoLinkError`);
   }
 
   nameErrors = () => {
@@ -69,8 +76,18 @@ class Errors {
     }
   };
 
+  photoErrors = () => {
+    if (this.photolink.validity.typeMismatch) {
+      this.photolinkerror.textContent = `Здесь должна быть ссылка`;
+    } else {
+      this.photolinkerror.textContent = ``;
+    }
+  };
+
   setEventListeners() {
+    console.log(this.photoform);
     this.editform.addEventListener(`input`, this.nameErrors);
     this.cardform.addEventListener(`input`, this.cardErrors);
+    this.photoform.addEventListener(`input`, this.photoErrors);
   }
 }

@@ -21,3 +21,4 @@ const photo = document.querySelector(`.user-info__shadowphoto`);
 const photoWindow = document.querySelector(`.photo`);
 const photoInputForm = document.querySelector(`.photo__form`);
 const photoSubmitBtn = document.querySelector(`.photo__button`);
+const photoOriginal = document.querySelector(`.user-info__photo`);

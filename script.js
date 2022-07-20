@@ -13,7 +13,7 @@
   const popupForm = new Popup(cardWindow, mainPopupBtn);
   const photoForm = new Popup(photoWindow, photo);
   const closeBigImg = new ImgPopup();
-  const photoChanger = new PhotoPopup();
+  const photoChanger = new PhotoPopup(photoOriginal, photoInputForm);
   const createErrors = new Errors(
     editInputForm,
     popupInputForm,
@@ -58,6 +58,7 @@
 
       photoSubmitBtn.addEventListener(`click`, (event) => {
         event.preventDefault();
+        photoChanger.change();
         photoForm.enter();
       });
     };

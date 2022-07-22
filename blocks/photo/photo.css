@@ -1,0 +1,18 @@
+@import url(./photo__content/photo__content.css);
+@import url(./photo__button/photo__button.css);
+
+
+.photo {
+        position: absolute;
+         width: 430px;
+         top: calc(50vh - 187px);
+         left: calc(50% - 215px);
+         /* background-color: rgba(0, 0, 0, .5); */
+         z-index: 99;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         display: none;
+      
+       
+}

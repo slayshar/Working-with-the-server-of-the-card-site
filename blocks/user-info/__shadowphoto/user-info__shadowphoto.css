@@ -1,0 +1,19 @@
+.user-info__shadowphoto {
+    transition: 0.2s  linear;
+position: absolute;
+background-color: black;
+opacity: 0;
+width: 151px;
+height: 151px;
+min-width: 151px;
+border-radius: 50%;
+background-size: cover;
+background-position: center;
+}
+
+.user-info__shadowphoto:hover {
+    transition: 0.2s  linear;
+display: block;
+opacity: 50%;
+cursor: pointer;
+}

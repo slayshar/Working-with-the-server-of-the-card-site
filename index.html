@@ -14,7 +14,7 @@
     </header>
     <div class="profile root__section">
       <div class="user-info">
-        <div class="user-info__photo"></div>
+        <div class = "user-info__shadowphoto"></div><div class="user-info__photo"></div>
         <div class="user-info__data">
           <h1 class="user-info__name">Jaques Causteau</h1>
           <p class="user-info__job">Sailor, Researcher</p>
@@ -59,7 +59,21 @@
       <div class="cont">  <img src="./images/close.svg" alt="" class="popup__close">
         <img src="" alt="" class="main-img"></div>
     </div>
+    <div class = "photo">
+    <div class="photo__content">
+      <img src="./images/close.svg" alt="" class="popup__close">
+      <h3 class="popup__title">Обновить аватар</h3>
+      <form class="photo__form" name="new">
+          <input type="url" required minlength="2" name="link" class="popup__input photo__input_type_link-url" placeholder="Ссылка на картинку">
+          <span class="error photoLinkError" aria-live="polite"></span>
+          <button type disabled="true" class="button button__deactive photo__button">Сохранить</button>
+      </form>
+    </div></div>
   </div>
+  <script src="PhotoPopup.js"></script>
+  <script src="Constans.js"></script>
+  <script src="UserApi.js"></script>
+  <script src="AllCardsApi.js"></script>
   <script src="Utils.js"></script>
   <script src="Errors.js"></script>
   <script src="ImgPopup.js"></script>

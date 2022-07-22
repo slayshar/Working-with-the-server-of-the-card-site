@@ -1,9 +1,11 @@
 class FormValidator {
-  constructor(editform, editbtn, cardform, cardbtn) {
+  constructor(editform, editbtn, cardform, cardbtn, photoform, photobtn) {
     this.editform = editform;
     this.cardform = cardform;
+    this.photoform = photoform;
     this.editbtn = editbtn;
     this.cardbtn = cardbtn;
+    this.photobtn = photobtn;
   }
   get editNameLength() {
     return this.editform.querySelector(`.edit__input_type_name`).value.length;
@@ -16,6 +18,10 @@ class FormValidator {
   }
   get cardLinkLength() {
     return this.cardform.querySelector(`.popup__input_type_link-url`).value
+      .length;
+  }
+  get photoLinkLength() {
+    return this.photoform.querySelector(`.photo__input_type_link-url`).value
       .length;
   }
   validateEditForm = () => {
@@ -45,9 +51,25 @@ class FormValidator {
       this.cardbtn.setAttribute('disabled', true);
     }
   };
+  validatePhotoForm = () => {
+    if (
+      this.photoLinkLength > 1 &&
+      !this.photoform.querySelector(`.photo__input_type_link-url`).validity
+        .typeMismatch
+    ) {
+      this.photobtn.classList.add(`button__active`);
+      this.photobtn.classList.remove(`button__deactive`);
+      this.photobtn.removeAttribute('disabled');
+    } else {
+      this.photobtn.classList.remove(`button__active`);
+      this.photobtn.classList.add(`button__deactive`);
+      this.photobtn.setAttribute('disabled', true);
+    }
+  };
 
   setEventListeners() {
     this.editform.addEventListener(`input`, this.validateEditForm);
     this.cardform.addEventListener(`input`, this.validateCardForm);
+    this.photoform.addEventListener(`input`, this.validatePhotoForm);
   }
 }

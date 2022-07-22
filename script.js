@@ -1,7 +1,6 @@
 (async function () {
   const test = new UserApi();
   const user = await test.loadUser();
-
   const updateUserData = (name, about) => {
     test.loadNewUser(name, about);
   };
@@ -59,6 +58,7 @@
       photoSubmitBtn.addEventListener(`click`, (event) => {
         event.preventDefault();
         photoChanger.change();
+        photoChanger.load();
         photoForm.enter();
       });
     };

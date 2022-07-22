@@ -85,7 +85,6 @@ class Errors {
   };
 
   setEventListeners() {
-    console.log(this.photoform);
     this.editform.addEventListener(`input`, this.nameErrors);
     this.cardform.addEventListener(`input`, this.cardErrors);
     this.photoform.addEventListener(`input`, this.photoErrors);

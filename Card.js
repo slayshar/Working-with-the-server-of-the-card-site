@@ -13,12 +13,6 @@ class Card {
       .style.backgroundImage.slice(4, -1)
       .replace(/"/g, '');
   }
-  async sendLike() {
-    let response = await fetch(`http://localhost:5000/cards/${this.id}`, {
-      method: 'PATCH',
-    });
-    console.log(response);
-  }
 
   like = (event) => {
     this.card
@@ -59,7 +53,17 @@ class Card {
     this.card.insertAdjacentHTML('beforeend', template);
     this.addEventListeners();
   };
-
+  async sendLike() {
+    let response = await fetch(`http://localhost:5000/cards/${this.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify({
+        personId: '62a11004753707ba8cdc5b8f',
+      }),
+    });
+  }
   async send() {
     let response = await fetch(`http://localhost:5000/cards`, {
       method: 'POST',

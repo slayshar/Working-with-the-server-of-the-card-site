@@ -1,5 +1,4 @@
-const BASE_URL = `http://127.0.0.1:5000`;
-const USER_ID = `62a11004753707ba8cdc5b8f`;
+const BASE_URL = `https://nomoreparties.co/cohort11`;
 const endpoints = {
   users: 'users',
   cards: 'cards',

@@ -54,10 +54,11 @@ class Card {
     this.addEventListeners();
   };
   async sendLike() {
-    let response = await fetch(`http://localhost:5000/cards/${this.id}`, {
+    let response = await fetch(`${BASE_URL}`, {
       method: 'PATCH',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
+        authorization: 'e5cf0ae6-c049-4812-8bb5-267f014b9213',
       },
       body: JSON.stringify({
         personId: '62a11004753707ba8cdc5b8f',
@@ -69,6 +70,7 @@ class Card {
       method: 'POST',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
+        authorization: 'e5cf0ae6-c049-4812-8bb5-267f014b9213',
       },
       body: JSON.stringify({
         name: `${this.name}`,

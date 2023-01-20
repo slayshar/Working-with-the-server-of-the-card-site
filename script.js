@@ -4,7 +4,15 @@
   const updateUserData = (name, about) => {
     test.loadNewUser(name, about);
   };
-
+  console.log(user);
+  const startName = function () {
+    document.querySelector(`.user-info__name`).textContent = user.name;
+    document.querySelector(`.user-info__job`).textContent = user.about;
+    document.querySelector(
+      `.user-info__photo`
+    ).style.backgroundImage = `url(${user.avatar})`;
+  };
+  startName();
   const cardtest = new AllCardsApi();
   const cardsall = cardtest.loadCards();
   const loadName = new UserInfo(editWindow, updateUserData);

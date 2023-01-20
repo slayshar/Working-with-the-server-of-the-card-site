@@ -8,10 +8,11 @@ class PhotoPopup {
     this.photo.style.backgroundImage = `url(${this.link.value})`;
   };
   async load() {
-    await fetch(`http://localhost:5000/users/${USER_ID}`, {
+    await fetch(`${BASE_URL}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
+        authorization: 'e5cf0ae6-c049-4812-8bb5-267f014b9213',
       },
       body: JSON.stringify({
         avatar: `${this.link.value}`,

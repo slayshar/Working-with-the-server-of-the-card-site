@@ -3,7 +3,11 @@ class AllCardsApi {
     this.cardsUrl = `${BASE_URL}/${endpoints.cards}`;
   }
   loadCards = () => {
-    fetch(`${this.cardsUrl}`)
+    fetch(`${this.cardsUrl}`, {
+      headers: {
+        authorization: 'e5cf0ae6-c049-4812-8bb5-267f014b9213',
+      },
+    })
       .then((result) => {
         return result.json();
       })

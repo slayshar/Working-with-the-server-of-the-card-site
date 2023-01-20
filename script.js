@@ -4,7 +4,6 @@
   const updateUserData = (name, about) => {
     test.loadNewUser(name, about);
   };
-  console.log(user);
   const startName = function () {
     document.querySelector(`.user-info__name`).textContent = user.name;
     document.querySelector(`.user-info__job`).textContent = user.about;

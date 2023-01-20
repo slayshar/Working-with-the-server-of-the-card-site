@@ -66,7 +66,7 @@ class Card {
     });
   }
   async send() {
-    let response = await fetch(`http://localhost:5000/cards`, {
+    let response = await fetch(`${BASE_URL}/cards`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -83,8 +83,12 @@ class Card {
   }
 
   async delete() {
-    let response = await fetch(`http://localhost:5000/cards/${this.id}`, {
+    let response = await fetch(`${BASE_URL}/cards/${this.id}`, {
       method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+        authorization: 'e5cf0ae6-c049-4812-8bb5-267f014b9213',
+      },
     });
   }
 
